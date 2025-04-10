@@ -1,35 +1,34 @@
 import mongoose from 'mongoose';
 
 const jobSchema = new mongoose.Schema({
-    company:{
-        type :String,
-        required : [true, 'Please provide company name'],
-        trim : true,
-       
-    },
-    position :{
-        type :String,
-        required : [true, 'Please provide position name'],
-        trim : true,
-    },
-    status :{
-        type :String,
-        enum : ['interview', 'declined', 'pending'],
-        default : 'pending',
-    },
-    appliedDate: {
-        type: Date,
-        required: true,
-      },
-      link: {
-        type: String,
-        default: "",
-      },
-    },
-      { 
-        timestamps: true, // adds createdAt and updatedAt fields automatically
-      }
-)
+  company: {
+    type: String,
+    required: [true, 'Please provide company name'],
+    trim: true,
+  },
+  role: {
+    type: String,
+    required: [true, 'Please provide job role/position'],
+    trim: true,
+  },
+  status: {
+    type: String,
+    enum: ['Applied', 'Interview', 'Offer', 'Rejected'],
+    default: 'Applied',
+  },
+  appliedDate: {
+    type: Date,
+    required: [true, 'Please provide the date of application'],
+  },
+  link: {
+    type: String,
+    trim: true,
+    default: '',
+  },
+}, {
+  timestamps: true, // adds createdAt and updatedAt
+});
 
-const Job = mongoose.model('Job', jobSchema)
+const Job = mongoose.model('Job', jobSchema);
+
 export default Job;
