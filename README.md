@@ -95,13 +95,7 @@ csharp
 Copy
 Edit
 
-### How to Add the README File:
-1. Open your project folder.
-2. Create a new file named `README.md` in the root of your project.
-3. Paste the above template into the file.
-4. Save the file.
 
-This README provides an overview of your application, installation instructions, and explains how users can interact with your app. You can further customize this file as needed based on the specific features and setup of your application.
 
 
 
