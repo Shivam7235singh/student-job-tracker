@@ -26,7 +26,7 @@ Before running this project, make sure you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Shivam7235Singh/student-job-tracker.git
+   git clone https://github.com/Shivam7235singh/student-job-tracker.git
 
 Navigate into the project directory:
 
@@ -36,7 +36,7 @@ Edit
 cd student-job-tracker
 Install frontend dependencies:
 
-bash
+```bash
 Copy
 Edit
 cd client
