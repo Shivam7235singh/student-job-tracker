@@ -5,6 +5,7 @@ const JobList = () => {
   const [jobs, setJobs] = useState([]);
   const [filter, setFilter] = useState('All');
   const [filteredJobs, setFilteredJobs] = useState([]);
+  const [activeJob, setActiveJob] = useState(null); // Track the job whose options are visible
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -49,6 +50,10 @@ const JobList = () => {
     }
   };
 
+  const toggleOptions = (jobId) => {
+    setActiveJob(activeJob === jobId ? null : jobId); // Toggle the job's options
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 py-6 px-4">
       <div className="max-w-7xl mx-auto">
@@ -87,16 +92,40 @@ const JobList = () => {
                   <td className="px-6 py-4">
                     <button
                       className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600"
-                      onClick={() => updateStatus(job._id, 'Interview')}
+                      onClick={() => toggleOptions(job._id)} // Toggle options
                     >
-                      Update to Interview
+                      {activeJob === job._id ? 'Hide Options' : 'Show Options'}
                     </button>
-                    <button
-                      className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 ml-2"
-                      onClick={() => deleteJob(job._id)}
-                    >
-                      Delete
-                    </button>
+
+                    {/* Conditionally render the options */}
+                    {activeJob === job._id && (
+                      <div className="mt-2 space-x-2">
+                        <button
+                          className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600"
+                          onClick={() => updateStatus(job._id, 'Interview')}
+                        >
+                          Update to Interview
+                        </button>
+                        <button
+                          className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+                          onClick={() => updateStatus(job._id, 'Offer')}
+                        >
+                          Update to Offer
+                        </button>
+                        <button
+                          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+                          onClick={() => updateStatus(job._id, 'Applied')}
+                        >
+                          Update to Applied
+                        </button>
+                        <button
+                          className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+                          onClick={() => deleteJob(job._id)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    )}
                   </td>
                 </tr>
               ))}

@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Use useNavigate for navigation
-import axios from 'axios'; // For making API requests
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const LoginPage = ({ setIsLoggedIn }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // useNavigate instead of useHistory
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       // Send login request to the backend API
-      const response = await axios.post('/api/users', {name ,  email, password });
+      const response = await axios.post('http://localhost:5000/api/users/login', { name, email, password });
 
       // If login is successful, save token to localStorage and set login state
       localStorage.setItem('token', response.data.token);

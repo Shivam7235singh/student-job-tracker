@@ -1,3 +1,4 @@
+// jobModel.js
 import mongoose from 'mongoose';
 
 const jobSchema = new mongoose.Schema({
@@ -25,6 +26,7 @@ const jobSchema = new mongoose.Schema({
     trim: true,
     default: '',
   },
+  
 }, {
   timestamps: true, // adds createdAt and updatedAt
 });

@@ -22,24 +22,22 @@ const App = () => {
 
   return (
     <Router>
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
-
         <Route path="/dashboard" element={
           <ProtectedRoute>
             <DashBoard />
           </ProtectedRoute>
         }/>
-
         <Route path="/jobs" element={
           <ProtectedRoute>
             <JobForm />
           </ProtectedRoute>
         }/>
       </Routes>
-
+      
       <footer className="bg-blue-600 text-white py-8">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-lg">&copy; 2025 MyJobPortal. All rights reserved.</p>

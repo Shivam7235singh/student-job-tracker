@@ -5,13 +5,13 @@ import {
   updateJobStatus,
   deleteJob,
 } from "../controllers/jobController.js";
-import { isAuthenticated } from "../middlewares/auth.js";
+import  {isAuthenticated}  from "../middlewares/auth.js";
 
 
 const router = express.Router();
 
-router.route("/").get(isAuthenticated , getJobs).post(isAuthenticated , createJob);
+router.route("/").get( getJobs).post(createJob);
 
-router.route("/:id").put(isAuthenticated , updateJobStatus).delete(isAuthenticated , deleteJob);
+router.route("/:id").put( updateJobStatus).delete( deleteJob);
 
 export default router;
