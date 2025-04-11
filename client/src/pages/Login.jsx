@@ -14,7 +14,7 @@ const LoginPage = ({ setIsLoggedIn }) => {
 
     try {
       // Send login request to the backend API
-      const response = await axios.post('http://localhost:5000/api/users/login', { name, email, password });
+      const response = await axios.post('https://student-job-tracker-2-backend.onrender.com/api/users/login', { name, email, password });
 
       // If login is successful, save token to localStorage and set login state
       localStorage.setItem('token', response.data.token);
