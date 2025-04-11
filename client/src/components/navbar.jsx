@@ -5,14 +5,14 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Remove the JWT token from localStorage and update login state
+   
     localStorage.removeItem('token');
     setIsLoggedIn(false);
-    navigate('/login'); // Redirect to login page after logout
+    navigate('/login'); 
   };
 
   const handleLoginRedirect = () => {
-    navigate('/login'); // Redirect to login page if the user is not logged in
+    navigate('/login'); 
   };
 
   return (
