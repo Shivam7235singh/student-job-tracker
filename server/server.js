@@ -16,7 +16,7 @@ connectDatabase();
 
 // CORS Configuration
 const corsOptions = {
-  origin: "https://student-job-tracker-blond.vercel.app/",
+  origin: "https://student-job-tracker-navy.vercel.app/",
   methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
   credentials: true,
 };
