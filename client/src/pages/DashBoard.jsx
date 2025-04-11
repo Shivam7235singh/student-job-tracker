@@ -6,11 +6,11 @@ const JobList = () => {
   const [filter, setFilter] = useState('All');
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [activeJob, setActiveJob] = useState(null); // Track the job whose options are visible
-  // const BASE_URL = import.meta.env.VITE_SERVER_URI ;
+  const BASE_URL = import.meta.env.VITE_SERVER_URI ;
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get(`https://student-job-tracker-2-backend.onrender.com/api/jobs`);
+        const response = await axios.get(`${BASE_URL}/api/jobs`);
         setJobs(response.data);
         setFilteredJobs(response.data);
       } catch (err) {
@@ -31,7 +31,7 @@ const JobList = () => {
 
   const updateStatus = async (jobId, status) => {
     try {
-      await axios.put(`https://student-job-tracker-2-backend.onrender.com/api/jobs/${jobId}`, { status });
+      await axios.put(`${BASE_URL}/api/jobs/${jobId}`, { status });
       const updatedJobs = jobs.map((job) =>
         job._id === jobId ? { ...job, status } : job
       );
@@ -43,7 +43,7 @@ const JobList = () => {
 
   const deleteJob = async (jobId) => {
     try {
-      await axios.delete(`https://student-job-tracker-2-backend.onrender.com/api/jobs/${jobId}`);
+      await axios.delete(`${BASE_URL}/api/jobs/${jobId}`);
       setJobs(jobs.filter((job) => job._id !== jobId));
     } catch (err) {
       console.error(err);

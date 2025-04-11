@@ -11,10 +11,10 @@ const LoginPage = ({ setIsLoggedIn }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const BASE_URL = import.meta.env.VITE_SERVER_URI ;
     try {
       const response = await axios.post(
-        "https://student-job-tracker-2-backend.onrender.com/api/users/login",
+        `${BASE_URL}/api/users/login`,
 
         { name, email, password },
         { withCredentials: true }

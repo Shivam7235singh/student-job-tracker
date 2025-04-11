@@ -12,14 +12,14 @@ const JobForm = () => {
   const [success, setSuccess] = useState('');
      
 
-  // const BASE_URL = import.meta.env.VITE_SERVER_URI ;
+  const BASE_URL = import.meta.env.VITE_SERVER_URI ; ;
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const jobData = { company, role, status, appliedDate: date, link };
 
     try {
-      await axios.post(`https://student-job-tracker-2-backend.onrender.com/api/jobs`, jobData);
+      await axios.post(`${BASE_URL}/api/jobs`, jobData);
       setSuccess('Job posted successfully!');
       setCompany('');
       setRole('');
