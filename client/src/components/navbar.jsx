@@ -26,7 +26,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
           <div className="hidden md:flex space-x-8">
             <Link to="/" className="text-white hover:text-gray-200">Home</Link>
             <Link to="/dashboard" className="text-white hover:text-gray-200">Dashboard</Link>
-            <Link to="/jobs" className="text-white hover:text-gray-200">Jobs</Link>
+            <Link to="/jobs" className="text-white hover:text-gray-200">Add Jobs</Link>
 
             <div className="flex justify-end">
               {!isLoggedIn ? (
