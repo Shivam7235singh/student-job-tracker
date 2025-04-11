@@ -16,18 +16,13 @@ connectDatabase();
 
 // CORS Configuration
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://student-job-tracker-blond.vercel.app/",
   methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
   credentials: true,
 };
 app.use(cors(corsOptions));
 
 
-// const _dirname = path.resolve();
-// app.use(express.static(path.join(_dirname, "/frontend/build")));
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(_dirname, "/frontend/build/index.html"));
-// });
 
 
   
