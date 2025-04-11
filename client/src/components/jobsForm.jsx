@@ -16,7 +16,7 @@ const JobForm = () => {
     const jobData = { company, role, status, appliedDate: date, link };
 
     try {
-      await axios.post('http://localhost:5000/api/jobs', jobData);
+      await axios.post('https://student-job-tracker-2-backend.onrender.com/api/jobs', jobData);
       setSuccess('Job posted successfully!');
       setCompany('');
       setRole('');
