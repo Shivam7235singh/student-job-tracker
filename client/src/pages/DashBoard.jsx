@@ -10,7 +10,7 @@ const JobList = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/jobs');
+        const response = await axios.get('https://student-job-tracker-2-backend.onrender.com/api/jobs');
         setJobs(response.data);
         setFilteredJobs(response.data);
       } catch (err) {
@@ -31,7 +31,7 @@ const JobList = () => {
 
   const updateStatus = async (jobId, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/jobs/${jobId}`, { status });
+      await axios.put(`https://student-job-tracker-2-backend.onrender.com/api/jobs/${jobId}`, { status });
       const updatedJobs = jobs.map((job) =>
         job._id === jobId ? { ...job, status } : job
       );
@@ -43,7 +43,7 @@ const JobList = () => {
 
   const deleteJob = async (jobId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/jobs/${jobId}`);
+      await axios.delete(`https://student-job-tracker-2-backend.onrender.com/api/jobs/${jobId}`);
       setJobs(jobs.filter((job) => job._id !== jobId));
     } catch (err) {
       console.error(err);
